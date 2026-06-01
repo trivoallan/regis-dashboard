@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "ignoreDeprecations": "6.0",
+    "outDir": "dist",
+    "rootDir": "src",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "declaration": false,
+    "types": ["node"]
+  },
+  "include": ["src/cli/**/*.ts"],
+  "exclude": ["src/cli/__tests__/**", "node_modules"]
+}
