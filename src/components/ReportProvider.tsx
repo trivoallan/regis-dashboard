@@ -13,9 +13,11 @@ import React, {
   useState,
   type ReactNode,
 } from "react";
+import { checkSchemaCompat } from "../lib/schemaCompat";
 
 /** Minimal typing for the report JSON (extend as needed). */
 export interface ReportData {
+  schemaVersion?: number;
   version?: string;
   request?: {
     url?: string;
@@ -126,6 +128,7 @@ interface ReportContextValue {
   report: ReportData | null;
   loading: boolean;
   error: string | null;
+  warning: string | null;
   reportUrl: string;
 }
 
@@ -133,6 +136,7 @@ const ReportContext = createContext<ReportContextValue>({
   report: null,
   loading: true,
   error: null,
+  warning: null,
   reportUrl: "",
 });
 
@@ -152,6 +156,7 @@ export function ReportProvider({
   const [report, setReport] = useState<ReportData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [warning, setWarning] = useState<string | null>(null);
 
   useEffect(() => {
     setLoading(true);
@@ -177,6 +182,14 @@ export function ReportProvider({
           window.location.href = `${newPath}?${params.toString()}`;
           return;
         }
+        const compat = checkSchemaCompat(data.schemaVersion);
+        if (compat.mode === "unsupported") {
+          setError(compat.message);
+          setReport(null);
+          setLoading(false);
+          return;
+        }
+        setWarning(compat.mode === "best-effort" ? compat.message : null);
         setReport(data);
         setError(null);
         setLoading(false);
@@ -188,7 +201,23 @@ export function ReportProvider({
   }, [reportUrl]);
 
   return (
-    <ReportContext.Provider value={{ report, loading, error, reportUrl }}>
+    <ReportContext.Provider
+      value={{ report, loading, error, warning, reportUrl }}
+    >
+      {warning && (
+        <div
+          role="status"
+          style={{
+            background: "#fef3c7",
+            color: "#92400e",
+            padding: "0.5rem 1rem",
+            fontSize: "0.875rem",
+            borderBottom: "1px solid #f59e0b",
+          }}
+        >
+          {warning}
+        </div>
+      )}
       {children}
     </ReportContext.Provider>
   );

@@ -10,12 +10,19 @@ Live demo: https://trivoallan.github.io/regis-dashboard/
 Renders a regis `report.json` as an interactive Docusaurus + Tremor site:
 summary, rules, per-analyzer pages, and a multi-report archive browser.
 
-## Contract
+## Report compatibility
 
-This viewer consumes the regis report envelope identified by an integer
-`schemaVersion`. The supported range is declared per release (see the runtime
-compatibility check — added in a later phase). The reference report shape lives
-at `trivoallan/regis:tests/fixtures/report.v1.json`.
+This dashboard renders regis reports identified by an integer `schemaVersion`.
+The supported range is declared in `src/lib/schemaCompat.ts`
+(`SUPPORTED_SCHEMA_VERSION`). At runtime:
+
+- in range → renders normally;
+- no `schemaVersion` (legacy report) → renders best-effort with a banner;
+- out of range → shows an explicit upgrade message instead of a broken view.
+
+When the core ships a new report `schemaVersion`, bump
+`SUPPORTED_SCHEMA_VERSION.max` and add any needed render handling. The
+`Cross-repo contract` workflow fails if the core drifts past the supported range.
 
 ## Develop
 
