@@ -14,5 +14,8 @@ jobs:
     steps:
       - uses: googleapis/release-please-action@v4
         with:
+          # PAT (not the default GITHUB_TOKEN) so release PRs trigger CI —
+          # token-authored PRs from GITHUB_TOKEN cannot start workflow runs.
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
