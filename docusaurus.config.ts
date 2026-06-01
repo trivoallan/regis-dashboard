@@ -24,6 +24,10 @@ const config: Config = {
     process.env.ARCHIVE_URL || process.env.REPORT_URL || "https://example.com",
   baseUrl: process.env.ARCHIVE_BASE_URL || process.env.REPORT_BASE_URL || "/",
 
+  organizationName: "trivoallan",
+  projectName: "regis-dashboard",
+  trailingSlash: false,
+
   onBrokenLinks: "warn",
 
   markdown: {
