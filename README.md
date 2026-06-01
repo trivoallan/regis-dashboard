@@ -26,6 +26,17 @@ at `trivoallan/regis:tests/fixtures/report.v1.json`.
 
 ## Status
 
-Extracted from the regis monorepo (`apps/dashboard`). The CLI (`render` / `serve`
-/ `archive` / `bootstrap archive`) and the published Docker image are added in
-Phase 1b.
+Extracted from the regis monorepo (`apps/dashboard`).
+
+## Use the CLI
+
+    # render a static site from a report
+    docker run --rm -v "$PWD:/data" ghcr.io/trivoallan/regis-dashboard render /data/report.json -o /data/site
+
+    # live preview
+    docker run --rm -p 8000:8000 -v "$PWD:/data" ghcr.io/trivoallan/regis-dashboard serve /data/report.json
+
+    # manage a multi-report archive
+    regis-dashboard archive add report.json -A ./archive
+    regis-dashboard archive configure --add "Prod:https://example.com/manifest.json"
+    regis-dashboard bootstrap archive -o ./my-archive --platform github
