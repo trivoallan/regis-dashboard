@@ -4,7 +4,8 @@
   "bump-minor-pre-major": true,
   "packages": {
     ".": {
-      "package-name": "regis-dashboard"
+      "package-name": "regis-dashboard",
+      "release-as": "0.1.0"
     }
   }
 }
