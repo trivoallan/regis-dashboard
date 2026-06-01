@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.2.0](https://github.com/trivoallan/regis-dashboard/compare/regis-dashboard-v0.1.0...regis-dashboard-v0.2.0) (2026-06-01)
+
+
+### Features
+
+* **cli:** add 'archive add' command ([92fd69b](https://github.com/trivoallan/regis-dashboard/commit/92fd69bd3d7497fa4e36290871445f72e0fffca1))
+* **cli:** add 'archive configure' command + archives.json config ([7aafce9](https://github.com/trivoallan/regis-dashboard/commit/7aafce9f27721f8b490573ea2855710482912fa9))
+* **cli:** add 'bootstrap archive' command + templates ([69771f1](https://github.com/trivoallan/regis-dashboard/commit/69771f1bfa219509173b6e4169f66ca2f0ba7e1a))
+* **cli:** add 'render' command (static report site build) ([6f4b939](https://github.com/trivoallan/regis-dashboard/commit/6f4b93902e7f5702ef570cce64b4389f1e84d182))
+* **cli:** add 'serve' command (static preview) ([e3638db](https://github.com/trivoallan/regis-dashboard/commit/e3638db19e16d04c4561cb1be593c30407068d27))
+* **cli:** port archive store (addToArchive + manifest) ([fc06284](https://github.com/trivoallan/regis-dashboard/commit/fc062841a1fc39454534befe71aed9a006bef848))
+* **cli:** port archive summary + status logic ([c05b640](https://github.com/trivoallan/regis-dashboard/commit/c05b6405816f9d26bf50651c40527810673dfcf0))
+* **cli:** regis-dashboard CLI + Docker image (Phase 1b) ([482cdf1](https://github.com/trivoallan/regis-dashboard/commit/482cdf1142718e5d961432e34e7612a834c1cf1f))
+* **cli:** regis-dashboard CLI + Docker image (Phase 1b) ([482cdf1](https://github.com/trivoallan/regis-dashboard/commit/482cdf1142718e5d961432e34e7612a834c1cf1f))
+* **cli:** scaffold regis-dashboard CLI (commander + vitest) ([d16dd4f](https://github.com/trivoallan/regis-dashboard/commit/d16dd4fa387dd17d0e86f7f6a1081e28890e081f))
+* **compat:** add checkSchemaCompat with declared supported range ([a8eb7a3](https://github.com/trivoallan/regis-dashboard/commit/a8eb7a3d3564851839ac7b630173e8b79a2ac689))
+* **compat:** gate rendering on report schemaVersion in ReportProvider ([a5d90a7](https://github.com/trivoallan/regis-dashboard/commit/a5d90a7e51d8855e01017e37d8ba28582c832734))
+* **compat:** runtime schemaVersion gate + cross-repo contract test (Phase 1c) ([84e3bf5](https://github.com/trivoallan/regis-dashboard/commit/84e3bf5a7360044142565677fdb3120d91047bcf))
+* **compat:** runtime schemaVersion gate + cross-repo contract test (Phase 1c) ([84e3bf5](https://github.com/trivoallan/regis-dashboard/commit/84e3bf5a7360044142565677fdb3120d91047bcf))
+
 ## 0.1.0 (2026-06-01)
 
 
