@@ -1,7 +1,15 @@
 {
-  "name": "@regis/dashboard",
-  "version": "0.0.1",
-  "private": true,
+  "name": "regis-dashboard",
+  "version": "0.0.0",
+  "private": false,
+  "description": "Standalone interactive viewer for regis container-security reports",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trivoallan/regis-dashboard.git"
+  },
+  "homepage": "https://trivoallan.github.io/regis-dashboard/",
+  "packageManager": "pnpm@9.0.0",
   "scripts": {
     "start": "docusaurus start",
     "dev": "docusaurus start",
@@ -22,7 +30,9 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.10.0",
+    "@docusaurus/theme-classic": "^3.10.0",
     "@docusaurus/tsconfig": "^3.10.0",
+    "@docusaurus/types": "^3.10.0",
     "@headlessui/tailwindcss": "^0.2.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

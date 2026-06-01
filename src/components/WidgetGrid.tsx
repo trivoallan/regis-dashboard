@@ -35,11 +35,13 @@ export function WidgetGrid({ widgets }: WidgetGridProps): React.JSX.Element {
               background: "var(--ifm-card-background-color)",
               borderRadius: "8px",
               border: "1px solid var(--ifm-color-emphasis-200)",
-              textAlign: (w.options?.align as string) ?? "left",
+              textAlign:
+                (w.options?.align as React.CSSProperties["textAlign"]) ??
+                "left",
               height: "100%",
             }}
           >
-            {w.options?.title && (
+            {Boolean(w.options?.title) && (
               <h6
                 style={{
                   marginBottom: "0.5rem",
@@ -47,7 +49,7 @@ export function WidgetGrid({ widgets }: WidgetGridProps): React.JSX.Element {
                   fontSize: "0.85rem",
                 }}
               >
-                {String(w.options.title)}
+                {String(w.options?.title)}
               </h6>
             )}
             {w.icon && <span style={{ fontSize: "1.5rem" }}>{w.icon}</span>}
