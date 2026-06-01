@@ -19,7 +19,7 @@
     "build": "docusaurus build",
     "serve": "docusaurus serve",
     "typecheck": "tsc --noEmit",
-    "build:cli": "tsc -p tsconfig.cli.json",
+    "build:cli": "tsc -p tsconfig.cli.json && cp -r src/cli/templates dist/cli/templates",
     "test": "vitest run",
     "test:watch": "vitest"
   },
