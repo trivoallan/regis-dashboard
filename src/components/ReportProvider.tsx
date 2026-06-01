@@ -13,6 +13,7 @@ import React, {
   useState,
   type ReactNode,
 } from "react";
+import { RiAlertLine } from "@remixicon/react";
 import { checkSchemaCompat } from "../lib/schemaCompat";
 
 /** Minimal typing for the report JSON (extend as needed). */
@@ -207,15 +208,13 @@ export function ReportProvider({
       {warning && (
         <div
           role="status"
-          style={{
-            background: "#fef3c7",
-            color: "#92400e",
-            padding: "0.5rem 1rem",
-            fontSize: "0.875rem",
-            borderBottom: "1px solid #f59e0b",
-          }}
+          className="flex items-center gap-2 border-b border-amber-200 bg-amber-50 px-4 py-2 text-sm text-amber-800 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-300"
         >
-          {warning}
+          <RiAlertLine
+            aria-hidden="true"
+            className="size-4 shrink-0 text-amber-500 dark:text-amber-400"
+          />
+          <span>{warning}</span>
         </div>
       )}
       {children}
